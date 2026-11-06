@@ -1,1 +1,84 @@
-<!doctype html><html lang="en"><meta charset="utf-8"><title>Project 1 — Organ Synthesizer</title><style>body{font:17px/1.6 system-ui;max-width:800px;margin:50px auto;padding:0 20px;color:#243043}h1,h2{color:#15375c}code{background:#eee;padding:2px 5px}</style><h1>Project 1: Hammond-Style Organ Synthesizer</h1><p>Individual CSE 471 project</p><h2>Selection</h2><p><strong>Four-Chord Study</strong> — 64 seconds, 120 BPM, 32 measures.</p><audio controls src="Main_Selection.wav"></audio><h2>Score file</h2><p><a href="Synthie/project1.score">Download XML score</a>. Each <code>note</code> has measure, beat, duration in beats, and pitch. The sequencer schedules notes and mixes all active voices one frame at a time.</p><h2>Organ synthesis</h2><p>The organ voice sums nine sine-wave components using Hammond drawbar frequency ratios 1, 3, 2, 4, 6, 8, 10, 12, and 16. Drawbar positions map to 3 dB amplitude increments. Notes use short attack and release ramps. Vibrato changes oscillator frequency; a stereo Leslie-style modulation changes channel amplitude.</p><audio controls src="Organ_Demo.wav"></audio><h2>Effects</h2><p>The effects class includes a delay-based reverberation approximation, chorus, flanging, and sinusoidal ring modulation. Delay buffers persist between sample frames and do not store the entire song. Note: the included reference WAV demonstrates echo/reverb only; build and render the Visual Studio implementation to demonstrate all effects.</p><audio controls src="Effects_Demo.wav"></audio><h2>Streaming</h2><p>Each call to <code>CSynthesizer::Generate()</code> creates one stereo sample frame. Active notes are held as individual voices, not a full-song sample buffer.</p><h2>Files</h2><p>Source is provided in the project ZIP. Generated audio is 44,100 Hz, 16-bit stereo.</p></html>
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Project 1 — Organ Synthesizer</title>
+    <style>
+        body {
+            font: 17px/1.6 system-ui;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 0 20px;
+            color: #243043;
+        }
+
+        h1, h2 {
+            color: #15375c;
+        }
+
+        code {
+            background: #eee;
+            padding: 2px 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Project 1: Hammond-Style Organ Synthesizer</h1>
+    <p>Individual CSE 471 project</p>
+
+    <h2>Selection</h2>
+    <p>
+        <strong>Four-Chord Study</strong> —
+        64 seconds, 120 BPM, 32 measures.
+    </p>
+    <audio controls src="project1_fixed.wav"></audio>
+
+    <h2>Score file</h2>
+    <p>
+        <a href="project1.score">Download XML score</a>.
+        Each <code>note</code> has measure, beat, duration in beats,
+        and pitch. The sequencer schedules notes and mixes all
+        active voices one frame at a time.
+    </p>
+
+    <h2>Organ synthesis</h2>
+    <p>
+        The organ voice sums nine sine-wave components using
+        Hammond drawbar frequency ratios 1, 3, 2, 4, 6, 8,
+        10, 12, and 16. Drawbar positions map to 3 dB
+        amplitude increments. Notes use short attack and
+        release ramps. Vibrato changes oscillator frequency;
+        a stereo Leslie-style modulation changes channel amplitude.
+    </p>
+    <audio controls src="Organ_Demo.wav"></audio>
+
+    <h2>Effects</h2>
+    <p>
+        The effects class includes a delay-based reverberation
+        approximation, chorus, flanging, and sinusoidal ring
+        modulation. Delay buffers persist between sample frames
+        and do not store the entire song.
+    </p>
+    <p>
+        Note: The included reference WAV demonstrates echo/reverb
+        only. Build and render the Visual Studio implementation
+        to demonstrate all effects.
+    </p>
+    <audio controls src="Effects_Demo.wav"></audio>
+
+    <h2>Streaming</h2>
+    <p>
+        Each call to <code>CSynthesizer::Generate()</code>
+        creates one stereo sample frame. Active notes are
+        held as individual voices, not a full-song sample buffer.
+    </p>
+
+    <h2>Files</h2>
+    <p>
+        Source is provided in the project ZIP.
+        Generated audio is 44,100 Hz, 16-bit stereo.
+    </p>
+</body>
+</html>
